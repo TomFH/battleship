@@ -1,11 +1,20 @@
 {
   "compilerOptions": {
-    "module": "es2020",
-    "target": "es2020",
+    "lib": ["es2021"],
+    "module": "commonjs",
+    "moduleResolution": "Node",
+    "target": "es2021",
     "sourceMap": true,
-    "outDir": "build/"
+    "outDir": "dist",
+    "baseUrl": ".",
+    "paths": {
+      "@app/*": ["src/*"]
+    }
   },
+  "include": [
+    "src"
+  ],
   "exclude": [
     "node_modules"
-  ]
+  ],
 }
