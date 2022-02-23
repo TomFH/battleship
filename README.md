@@ -60,6 +60,13 @@ $ npx tsc --project tsconfig.src.json
 $ node dist/src/src/main.js
 ```
 
+To dump the compiled files and execute them:
+
+```
+$ npx tsc
+$ node --require tsconfig-paths/register dist/main.js
+```
+
 
 ### Run the tests
 
