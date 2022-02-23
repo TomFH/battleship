@@ -50,9 +50,23 @@ $ npm install
 ## Run the app
 
 ```
-$ npx ts-node --require tsconfig-paths/register src/main.ts
+$ npx ts-node --project tsconfig.src.json --require tsconfig-paths/register src/main.ts
 ```
 
+To compile the app and execute it directly with node:
+
+```
+$ npx tsc --project tsconfig.src.json
+$ node dist/src/src/main.js
+```
+
+
+### Run the tests
+
+```
+$ export NODE_OPTIONS='--enable-source-maps'; npx tsc --project tsconfig.tests.json
+$ npx jasmine --config=jasmine.json
+```
 
 [npm]: https://www.npmjs.com/
 [nvm]: https://github.com/nvm-sh/nvm
