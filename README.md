@@ -53,6 +53,13 @@ $ npm install
 $ npx ts-node --require tsconfig-paths/register src/main.ts
 ```
 
+To dump the compiled files and execute them:
+
+```
+$ npx tsc
+$ node --require tsconfig-paths/register dist/main.js
+```
+
 
 [npm]: https://www.npmjs.com/
 [nvm]: https://github.com/nvm-sh/nvm
