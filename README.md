@@ -57,15 +57,16 @@ To compile the app and execute it directly with node:
 
 ```
 $ npx tsc --project tsconfig.src.json
-$ TS_NODE_PROJECT=tsconfig.src.json node --require=tsconfig-paths/register dist/src/main.js
+$ TS_NODE_PROJECT=tsconfig.src.json node --require=ts-node/register --require=tsconfig-paths/register dist/src/main.js
 ```
 
 
-### Run the tests
+## Run the tests
 
 ```
-$ TS_NODE_PROJECT=tsconfig.tests.json node_modules/.bin/mocha --require=ts-node/register --require=tsconfig-paths/register --check-leaks tests/**/*.spec.ts
+$ TS_NODE_PROJECT=tsconfig.tests.json npx mocha --require=ts-node/register --require=tsconfig-paths/register --check-leaks tests/**/*.spec.ts
 ```
+
 
 [npm]: https://www.npmjs.com/
 [nvm]: https://github.com/nvm-sh/nvm
