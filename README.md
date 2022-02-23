@@ -57,7 +57,7 @@ To dump the compiled files and execute them:
 
 ```
 $ npx tsc
-$ node --require tsconfig-paths/register dist/main.js
+$ node --require ts-node/register --require tsconfig-paths/register dist/main.js
 ```
 
 
