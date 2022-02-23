@@ -1,10 +1,12 @@
 {
   "extends": "./tsconfig.base.json",
   "compilerOptions": {
-    "outDir": "dist/tests"
+    "outDir": "dist/tests",
+    "declaration": false,
+    "noEmit": true
   },
-  "files": [],
   "include": [
+    "src",
     "tests"
   ],
   "references": [

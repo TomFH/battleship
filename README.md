@@ -50,29 +50,21 @@ $ npm install
 ## Run the app
 
 ```
-$ npx ts-node --project tsconfig.src.json --require tsconfig-paths/register src/main.ts
+$ npx ts-node --project=tsconfig.src.json --require=tsconfig-paths/register src/main.ts
 ```
 
 To compile the app and execute it directly with node:
 
 ```
 $ npx tsc --project tsconfig.src.json
-$ node dist/src/src/main.js
-```
-
-To dump the compiled files and execute them:
-
-```
-$ npx tsc
-$ node --require tsconfig-paths/register dist/main.js
+$ TS_NODE_PROJECT=tsconfig.src.json node --require=tsconfig-paths/register dist/src/main.js
 ```
 
 
 ### Run the tests
 
 ```
-$ export NODE_OPTIONS='--enable-source-maps'; npx tsc --project tsconfig.tests.json
-$ npx jasmine --config=jasmine.json
+$ TS_NODE_PROJECT=tsconfig.tests.json node_modules/.bin/mocha --require=ts-node/register --require=tsconfig-paths/register --check-leaks tests/**/*.spec.ts
 ```
 
 [npm]: https://www.npmjs.com/
