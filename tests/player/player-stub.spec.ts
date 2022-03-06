@@ -3,7 +3,7 @@ import { List } from 'immutable';
 import { HitResponse } from '../../src/communication/hit-response';
 import { ShotAcknowledgement } from '../../src/communication/shot-acknowledgement';
 import { Coordinate } from '../../src/grid/coordinate';
-import { PlayerStub } from './player-stub';
+import { PlayerStub } from '../../src/player/player-stub';
 
 describe('PlayerStub', () => {
     it('plays the given actions', () => {

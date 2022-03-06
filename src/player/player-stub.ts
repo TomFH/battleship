@@ -1,13 +1,13 @@
 import { List } from 'immutable';
 import * as _ from 'lodash';
-import { assertIsNonNullObject } from '../../src/assert/assert-is-non-null-object';
-import { assertIsNotUndefined } from '../../src/assert/assert-is-not-undefined';
-import { HitResponse } from '../../src/communication/hit-response';
-import { ShotAcknowledgement } from '../../src/communication/shot-acknowledgement';
-import { Coordinate } from '../../src/grid/coordinate';
-import { Player } from '../../src/player/player';
-import { hasOwnProperty } from '../../src/utils/has-own-property';
-import { nothingIfUndefined, Optional } from '../../src/utils/optional';
+import { assertIsNonNullObject } from '../assert/assert-is-non-null-object';
+import { assertIsNotUndefined } from '../assert/assert-is-not-undefined';
+import { HitResponse } from '../communication/hit-response';
+import { ShotAcknowledgement } from '../communication/shot-acknowledgement';
+import { Coordinate } from '../grid/coordinate';
+import { Player } from './player';
+import { hasOwnProperty } from '../utils/has-own-property';
+import { nothingIfUndefined, Optional } from '../utils/optional';
 import assert = require('node:assert');
 
 type MoveAction<

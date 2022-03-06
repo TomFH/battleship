@@ -7,7 +7,7 @@ import { Coordinate } from '../src/grid/coordinate';
 import { BufferLogger, Record as LogRecord } from '../src/logger/buffer-logger';
 import { Match } from '../src/match';
 import { Player } from '../src/player/player';
-import { PlayerStub } from './player/player-stub';
+import { PlayerStub } from '../src/player/player-stub';
 
 type SmallGridColumnIndex = 'C1' | 'C2';
 type SmallGridRowIndex = 'R1' | 'R2';
