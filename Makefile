@@ -18,8 +18,8 @@ TOUCH = bash .makefile/touch.sh
 # App variables config
 #---------------------------------------------------------------------------
 
-SRC_DEPS=node_modules src tsconfig.base.json tsconfig.src.json
-TEST_DEPS=node_modules src tests tsconfig.base.json tsconfig.tests.json
+SRC_DEPS=$(shell find node_modules src -type f) tsconfig.base.json tsconfig.src.json
+TEST_DEPS=$(shell find node_modules src tests -type f) tsconfig.base.json tsconfig.tests.json
 
 
 #
@@ -43,8 +43,14 @@ clean:
 	rm -rf node_modules || true
 
 
+.PHONY: lint
+lint:		## Checks CS
+lint:
+	npx eslint . --ext .js,.ts
+
+
 .PHONY: cs
-cs:	## Runs ESLint
+cs:		## Fixes CS
 cs:
 	npx eslint . --ext .js,.ts --fix
 
@@ -52,25 +58,26 @@ cs:
 .PHONY: compile
 compile:	## Builds the JavaScript app artefacts
 compile:
+	rm -rf dist/src || true
 	$(MAKE) dist/src
 
 
 .PHONY: fast_run
 fast_run:	## Runs the application (does not dump the artefacts)
 fast_run: $(SRC_DEPS)
-	npx ts-node --project=tsconfig.src.json --require=tsconfig-paths/register src/main.ts
+	npx ts-node --project=tsconfig.src.json src/main.ts
 
 
 .PHONY: run
 run:		## Runs the (compiled) application
 run: dist/src
-	TS_NODE_PROJECT=tsconfig.src.json node --require=ts-node/register --require=tsconfig-paths/register dist/src/main.js
+	TS_NODE_PROJECT=tsconfig.src.json node --require=ts-node/register dist/src/main.js
 
 
 .PHONY: test
 test:		## Runs the tests
 test: $(TEST_DEPS)
-	TS_NODE_PROJECT=tsconfig.tests.json npx mocha --require=ts-node/register --require=tsconfig-paths/register --check-leaks tests/**/*.spec.ts
+	TS_NODE_PROJECT=tsconfig.tests.json npx mocha --require=ts-node/register --check-leaks tests/**/*.spec.ts
 
 
 
