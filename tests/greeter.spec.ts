@@ -3,7 +3,7 @@ import { expect } from 'chai';
 
 describe('greeter', () => {
     it('can give a greeting', () => {
-        expect(greeter()).equals('Hello World');
+        expect(greeter()).equals('Hello world!');
     });
 });
 

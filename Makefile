@@ -43,8 +43,14 @@ clean:
 	rm -rf node_modules || true
 
 
+.PHONY: lint
+lint:		## Checks CS
+lint:
+	npx eslint . --ext .js,.ts
+
+
 .PHONY: cs
-cs:	## Runs ESLint
+cs:		## Fixes CS
 cs:
 	npx eslint . --ext .js,.ts --fix
 
