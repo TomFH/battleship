@@ -1,4 +1,4 @@
-import { greeter } from '@app/greeter';
+import { greeter } from '../src/greeter';
 import { expect } from 'chai';
 
 describe('greeter', () => {
